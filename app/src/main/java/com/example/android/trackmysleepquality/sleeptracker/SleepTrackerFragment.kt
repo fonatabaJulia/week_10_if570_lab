@@ -99,6 +99,7 @@ class SleepTrackerFragment : Fragment() {
                 sleepTrackerViewModel.doneNavigating()
             }
         })
+        binding.setLifecycleOwner(this)
 
         return binding.root
     }

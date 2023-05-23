@@ -103,6 +103,8 @@ class SleepTrackerViewModel(
     val navigateToSleepQuality: LiveData<SleepNight>
         get() = _navigateToSleepQuality
 
+
+
     /**
      * Call this immediately after navigating to [SleepQualityFragment]
      *
