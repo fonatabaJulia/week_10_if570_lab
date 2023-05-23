@@ -67,6 +67,7 @@ class SleepTrackerViewModel(
         it?.isNotEmpty()
     }
 
+
     /**
      * Request a toast by setting this value to true.
      *
@@ -203,5 +204,17 @@ class SleepTrackerViewModel(
         // Show a snackbar message, because it's friendly.
         _showSnackbarEvent.value = true
     }
+
+    fun onSleepNightClicked(id: Long) {
+        private val _navigateToSleepDetail = MutableLiveData<Long>()
+        val navigateToSleepDetail
+        get() = _navigateToSleepDetail
+        _navigateToSleepDetail.value = id
+    }
+
+    fun onSleepDetailNavigated() {
+        _navigateToSleepDetail.value = null
+    }
+
 
 }

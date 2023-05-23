@@ -113,7 +113,18 @@ class SleepTrackerFragment : Fragment() {
             it?.let {
                 adapter.submitList(it)
             }
+            sleepTrackerViewModel.onSleepNightClicked(nightId)
         })
+
+        sleepTrackerViewModel.navigateToSleepDetail.observe(viewLifecycleOwner,
+            Observer { night ->
+                night?.let {
+                    this.findNavController().navigate(
+                        SleepTrackerFragmentDirections
+                            .actionSleepTrackerFragmentToSleepDetailFragment(night))
+                    sleepTrackerViewModel.onSleepDetailNavigated()
+                }
+            })
 
         val manager = GridLayoutManager(activity, 5, GridLayoutManager.HORIZONTAL,
             false)
